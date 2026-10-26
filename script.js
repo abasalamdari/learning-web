@@ -20,3 +20,20 @@ const navmenu = document.querySelector('header nav');
 menubtn,addEventListener('click', function() {
     navmenu.classList.toggle('active');
 });
+const contactform = document.getElementById('contact-from');
+if (contactfrom) {
+    contactfrom.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if (name === "" || email === "" || message === "") {
+            alert('لطفا همه فیلدها راپرکنید !');
+        } else if (!email.includes('@')) {
+            alert('(باید شامل@باشد)لطفا یک ایمیل معتبر وارد کنید .');
+        } else {
+            alert('(شبیه سازی)پیام شما با موفقیت ارسال شد! ');
+            contactfrom.requestFullscreen();
+        }
+    });
+}
